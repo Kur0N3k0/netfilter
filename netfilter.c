@@ -94,7 +94,7 @@ static int cb(struct nfq_q_handle *qh, struct nfgenmsg *nfmsg,
 	if(Host == NULL)
 		return nfq_set_verdict(qh, id, NF_ACCEPT, 0, NULL);
 
-	if(!memcmp(target, Host + 6, strlen(target)))
+	if(strstr(target, Host + 6) != NULL)
 		return nfq_set_verdict(qh, id, NF_DROP, 0, NULL);
 
 	return nfq_set_verdict(qh, id, NF_ACCEPT, 0, NULL);
