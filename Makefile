@@ -1,5 +1,5 @@
 all:
-	gcc -o netfilter netfilter.c -lnetfilter_queue
+	g++ -o netfilter netfilter.cpp -lnetfilter_queue -std=c++11
 
 clean:
 	rm netfilter
